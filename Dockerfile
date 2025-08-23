@@ -22,6 +22,7 @@ WORKDIR /app
 # Copy built JAR from builder stage
 COPY --from=builder /app/target/docker-java-app-example.jar /app/
 
+ENTRYPOINT ["java","-Duser.timezone=Asia/Kolkata","-jar","docker-java-app-example.jar"]
 EXPOSE 8080
 CMD ["java", "-jar", "docker-java-app-example.jar"]
 
